@@ -16,6 +16,30 @@
       </div>
     </body>
 
+    <script>
+  // 建立一個自動修正 Canvas 與 Unity 解析度的函數
+  function fixUnitySize() {
+    var canvas = document.querySelector("#unity-canvas");
+    if (canvas) {
+      // 1. 讓 Canvas 的渲染畫素直接等於網頁實際看到的寬高
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      // 2. 移除 BetterTemplate 限制比例的行內樣式
+      canvas.style.width = "100vw";
+      canvas.style.height = "100vh";
+    }
+  }
+
+  // 當網頁大小改變、或者手機轉向時，立刻重新計算
+  window.addEventListener('resize', fixUnitySize);
+  window.addEventListener('orientationchange', fixUnitySize);
+
+  // 由於 Unity 初始化需要時間，在載入完成後 1 秒與 3 秒強制重新刷新解析度
+  setTimeout(fixUnitySize, 1000);
+  setTimeout(fixUnitySize, 3000);
+</script>
+
     <script src="Build/0716_WebTest.loader.js"></script>
     <script>
       var buildUrl = "Build";
@@ -33,7 +57,6 @@
         document.querySelector("#unity-canvas"),
         config,
         UnityProgress);
-
       function UnityProgress(progress) {
         var loader = document.querySelector("#loader");
         var loaderProgress = document.querySelector("#loader .progress");
