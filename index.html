@@ -19,7 +19,7 @@ position :absolute; */
   </head>
   <body>
     <div id="unity-container" style="position: absolute; width: auto; height: auto  aspect-ratio: 16 / 9; overflow: hidden;">
-      <canvas id="unity-canvas" width=1080 height=1920 style="width: auto; height: 100%"></canvas>
+      <canvas id="unity-canvas" width=1080 height=1920 style="width: 100%; height: auto"></canvas>
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
@@ -34,11 +34,11 @@ position :absolute; */
     <script>
       const hideFullScreenButton = "s";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/0721.loader.js";
+      const loaderUrl = buildUrl + "/0722.loader.js";
       const config = {
-        dataUrl: buildUrl + "/0721.data",
-        frameworkUrl: buildUrl + "/0721.framework.js",
-        codeUrl: buildUrl + "/0721.wasm",
+        dataUrl: buildUrl + "/0722.data",
+        frameworkUrl: buildUrl + "/0722.framework.js",
+        codeUrl: buildUrl + "/0722.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "darkert",
         productName: "神蝗盟球球",
